@@ -685,9 +685,17 @@ class Language {
 
   var you_are_looking_for = "You are looking for ?";
 
-  String logIn_with = "Log in with";
+  String logIn_with = "Login with";
 
   String registation_now = "Registration now";
 
-  String user_registation ="User Registration";
+  String user_registation = "User Registration";
+
+  String note_fingar_print =
+      "To use this application please confirm your fingerprint information. ";
+
+  var note_face_recognaization =
+      "To use this application please confirm your face information. ";
+
+  var confirm ="Confirm";
 }

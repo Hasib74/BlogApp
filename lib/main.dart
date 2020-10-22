@@ -64,8 +64,8 @@ class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
               DefaultCupertinoLocalizations.delegate
             ],
             //theme: AppTheme(),
-            routes: appRoutes,
-            onGenerateRoute: onGenaratedRoute(RouteSettings()),
+            //routes: appRoutes,
+            onGenerateRoute: onGenaratedRoute,
             initialRoute: SPLASH_SCREEN,
           ));
         }));

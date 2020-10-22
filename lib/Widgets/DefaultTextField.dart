@@ -1,93 +1,66 @@
 import 'package:blog_app/AppHelper/AppColors.dart';
-import 'package:blog_app/AppHelper/AppSpaces.dart';
-import 'package:blog_app/AppHelper/AppStyle.dart';
 import 'package:blog_app/AppHelper/Dimension.dart';
 import 'package:flutter/material.dart';
 
-Widget DefaultTextField(
+import '../main.dart';
+
+TextFormField DefaultTextField(
     {@required TextEditingController controller,
     FocusNode focusNode,
-    String label,
-    Color backgroundColor,
+    @required String label,
     Widget prefixIcon,
     Widget suffixIcon,
     int maxLine = 1,
     TextInputType textInputType = TextInputType.text,
-    bool obscureText = false,
-    String hint,
-    bool enable = true,
-    Function onTap,
-    bool isRequired = false,
-    bool borderEnable = true,
-    Color underlineColor = Colors.white,
-    double padding = 16,
-    Color cursorColor = Colors.white,
-    bool passwordEye = true,
-    double left_padding = 30,
-    double right_padding = 30,
-    double top_padding = 0,
-    double bottom_padding = 0,
-    double font_size = 16,
-    double contentPadding_left = 20,
-    double contentPadding_bottom = 10,
-    double contentPadding_top = 12,
-    double focusedBorderRadius = 25.7,
-    double enabledBorderRadius = 25.7,
-    String headerTitle,
-    Color borderColor,
-    Color textColor,
-    Color headerTitleColor,
-    BuildContext context}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      headerTitle != null
-          ? Padding(
-              padding: EdgeInsets.only(left: left_padding),
-              child: Text(
-                "${headerTitle ?? ""}",
-                style: TextStyle(
-                    color: headerTitleColor ?? Colors.white.withOpacity(0.6),
-                    fontSize: Dimension.textFiledHeaderTitleSize,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
-          : Container(),
-      headerTitle != null ? AppSpaces.spaces_height_10 : Container(),
-      Padding(
-        padding: EdgeInsets.only(left: left_padding, right: right_padding),
-        child: Theme(
-          data: Theme.of(context).copyWith(splashColor: backgroundColor),
-          child: TextField(
-            obscureText: obscureText,
-            autofocus: false,
-            style: TextStyle(
-                fontSize: font_size, color: textColor ?? Color(0xFFbdc6cf)),
-            cursorColor: AppColors.Primary_Accent,
-            controller: controller,
-            decoration: InputDecoration(
-              prefixIcon: prefixIcon ?? null,
-              suffixIcon: suffixIcon ?? null,
-              filled: true,
-              fillColor: backgroundColor,
-              hintText: '${hint ?? ""}',
-              alignLabelWithHint: true,
-              contentPadding: EdgeInsets.only(
-                  left: contentPadding_left,
-                  bottom: contentPadding_bottom,
-                  top: contentPadding_top),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: borderColor ?? backgroundColor),
-                borderRadius: BorderRadius.circular(focusedBorderRadius),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: borderColor ?? backgroundColor),
-                borderRadius: BorderRadius.circular(focusedBorderRadius),
-              ),
-            ),
-          ),
+    bool obscureText = false}) {
+  return TextFormField(
+    style: TextStyle(
+        color: AppColors.Text_Color,
+        fontSize: Dimension.Text_Size,
+        fontWeight: FontWeight.normal),
+    controller: controller,
+    focusNode: focusNode,
+    autocorrect: false,
+    keyboardType: textInputType,
+    cursorColor: AppColors.cursor_color,
+    maxLines: maxLine,
+    obscureText: obscureText,
+    textInputAction: TextInputAction.done,
+    textAlignVertical: TextAlignVertical.top,
+    validator: (String value) {
+      if (value.isEmpty) {
+        if (focusNode != null) focusNode.requestFocus();
+        return '$label${language.Required}';
+      } else {
+        return null;
+      }
+    },
+    decoration: InputDecoration(
+        filled: false,
+        enabledBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(width: 2, color: AppColors.text_filed_border_color),
         ),
-      ),
-    ],
+        focusedBorder: OutlineInputBorder(
+          borderSide:
+              BorderSide(width: 2, color: AppColors.text_filed_border_color),
+        ),
+        errorBorder: OutlineInputBorder(
+            borderSide:
+                BorderSide(width: 2, color: AppColors.TextField_Error_Color)),
+        border: OutlineInputBorder(
+          borderSide:
+              BorderSide(width: 2, color: AppColors.text_filed_border_color),
+        ),
+        labelText: label,
+        labelStyle: TextStyle(
+            color: AppColors.text_color,
+            fontSize: Dimension.Text_Size,
+            fontWeight: FontWeight.normal),
+        prefixIcon: prefixIcon != null ? prefixIcon : null,
+        errorStyle: TextStyle(
+            fontSize: Dimension.Text_Size_Small_Extra,
+            color: AppColors.error_color),
+        suffixIcon: suffixIcon != null ? suffixIcon : null),
   );
 }

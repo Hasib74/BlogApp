@@ -60,7 +60,7 @@ class LogInPage extends StatelessWidget {
               language.logIn_with,
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline4
                   .copyWith(color: Colors.black),
             ),
             Spacer(),

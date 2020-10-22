@@ -9,7 +9,7 @@ class Dimension {
   static double Text_Size_Big_1 = 25.0;
   static double Text_Size_Big_2 = 20.0;
   static double Text_title_Big = 35.0;
-  static double Text_Size = 14.0;
+  static double Text_Size = 16.0;
   static double Text_Size_Small = 12.0;
   static double Text_Size_Small_Extra = 10.0;
   static double card_elevation = 0.0;
