@@ -12,12 +12,14 @@ TextFormField DefaultTextField(
     Widget suffixIcon,
     int maxLine = 1,
     TextInputType textInputType = TextInputType.text,
-    bool obscureText = false}) {
+    bool obscureText = false,
+    Function(String) vaidator ,String errorText ,Function(String) onChange}) {
   return TextFormField(
     style: TextStyle(
         color: AppColors.Text_Color,
         fontSize: Dimension.Text_Size,
         fontWeight: FontWeight.normal),
+
     controller: controller,
     focusNode: focusNode,
     autocorrect: false,
@@ -27,15 +29,10 @@ TextFormField DefaultTextField(
     obscureText: obscureText,
     textInputAction: TextInputAction.done,
     textAlignVertical: TextAlignVertical.top,
-    validator: (String value) {
-      if (value.isEmpty) {
-        if (focusNode != null) focusNode.requestFocus();
-        return '$label${language.Required}';
-      } else {
-        return null;
-      }
-    },
+    validator: vaidator,
+    onChanged: onChange,
     decoration: InputDecoration(
+      errorText: errorText,
         filled: false,
         enabledBorder: OutlineInputBorder(
           borderSide:

@@ -1,5 +1,5 @@
 class ScreenArguments {
-  dynamic data;
+  Map data;
 
   ScreenArguments({this.data});
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "828737704880",
+    "firebase_url": "https://pejuang-3012e.firebaseio.com",
+    "project_id": "pejuang-3012e",
+    "storage_bucket": "pejuang-3012e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828737704880:android:293632aabe8f395b207c75",
+        "android_client_info": {
+          "package_name": "com.monu.blog_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828737704880-v6siehj9cj39l4hqac4pcsmbj499q1p7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.monu.blog_app",
+            "certificate_hash": "2095181a9a2b16f6e2816fb8f2fda05ddcf3c403"
+          }
+        },
+        {
+          "client_id": "828737704880-g3kje8mcrj2oamubhkmirtqv7q489ko3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA56n61WF8fgUY9QxsTxNLuhOznYW5zeCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828737704880-g3kje8mcrj2oamubhkmirtqv7q489ko3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

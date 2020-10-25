@@ -1,21 +1,36 @@
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Route/RouteTransition.dart';
-import 'package:blog_app/screen/LogInRegistation/LogInPage.dart';
+import 'package:blog_app/Screen/LogInRegistation/FaceRecognization.dart';
+import 'package:blog_app/Screen/LogInRegistation/LogInPage.dart';
+import 'package:blog_app/Screen/LogInRegistation/OtpScreen.dart';
+import 'package:blog_app/Screen/LogInRegistation/Registation.dart';
+import 'package:blog_app/Screen/SplashScreen.dart';
 import 'package:flutter/material.dart';
+
+
+
 
 Route onGenaratedRoute(RouteSettings routeSettings) {
   if (routeSettings.name == LOGIN) {
-    print("LogIn  ");
     return CustomPageRoute(
-      appRoutes[LOGIN],
+        LogInPage(),
     );
   } else if (routeSettings.name == SPLASH_SCREEN) {
-    print("Splash Screen  ");
     return CustomPageRoute(
-      appRoutes[SPLASH_SCREEN],
+      SplashScreen(),
     );
   } else if (routeSettings.name == REGISTRATION) {
-    print("Registation ");
-    return CustomPageRoute(appRoutes[REGISTRATION]);
+    return CustomPageRoute(Registation());
+  } else if (routeSettings.name == FACE_RECOGNITION) {
+    return CustomPageRoute(FaceRecognization());
+  } else if (routeSettings.name == OTP_SCREEN) {
+    return CustomPageRoute(OtpPage(screenArguments: routeSettings.arguments,));
   }
 }
+
+
+
+
+
+
+

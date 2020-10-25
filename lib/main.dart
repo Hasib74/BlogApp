@@ -1,11 +1,14 @@
 import 'package:blog_app/AppHelper/AppTheme.dart';
 import 'package:blog_app/FlutterProvider/AnimationProvider.dart';
+import 'package:blog_app/FlutterProvider/AuthenticationProvider.dart';
+import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
 import 'package:blog_app/FlutterProvider/SplashScreenProvider.dart';
 import 'package:blog_app/Language/AppLocalizations.dart';
 import 'package:blog_app/Language/Language.dart';
 import 'package:blog_app/Route/GenaratedRoute.dart';
 import 'package:blog_app/Route/Route.dart';
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +29,8 @@ void main() {
         ChangeNotifierProvider(create: (_) => AppLanguage()),
         ChangeNotifierProvider(create: (_) => SplashProvider()),
         ChangeNotifierProvider(create: (_) => AnimationProvider()),
+        ChangeNotifierProvider(create: (_) => LogInAndRegistationProvider()),
+        ChangeNotifierProvider(create: (_) => AuthenticationProvider()),
       ],
       child: MyApp(),
     ),
@@ -44,6 +49,7 @@ class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
 
   @override
   void initState() {
+    Firebase.initializeApp();
     super.initState();
   }
 
