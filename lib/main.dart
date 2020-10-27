@@ -1,4 +1,6 @@
 import 'package:blog_app/AppHelper/AppTheme.dart';
+import 'package:blog_app/DatabaseProvider/FirebaseProvider.dart';
+import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/FlutterProvider/AnimationProvider.dart';
 import 'package:blog_app/FlutterProvider/AuthenticationProvider.dart';
 import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
@@ -31,6 +33,8 @@ void main() {
         ChangeNotifierProvider(create: (_) => AnimationProvider()),
         ChangeNotifierProvider(create: (_) => LogInAndRegistationProvider()),
         ChangeNotifierProvider(create: (_) => AuthenticationProvider()),
+        ChangeNotifierProvider(create: (_) => FirebaseProvider()),
+        Provider(create: (_) => SharedPreferencesProvider()),
       ],
       child: MyApp(),
     ),

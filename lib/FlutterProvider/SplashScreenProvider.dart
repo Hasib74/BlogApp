@@ -1,24 +1,28 @@
 import 'dart:async';
 
+import 'package:blog_app/AppHelper/AppDataHelper.dart';
+import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Route/RouteTransition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 
 class SplashProvider with ChangeNotifier {
   BuildContext context;
+  SharedPreferencesProvider sharedPreferencesProvider;
 
   SplashProvider() {
-    SharedPreferences.getInstance().then((pr) {
-      prefs = pr;
-    });
     setAppData();
   }
 
-  void setView(BuildContext context) => this.context = context;
+  void setView(BuildContext context) {
+    this.context = context;
+    sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(context);
+  }
 
   startTime() async {
     var _duration = Duration(seconds: 5);
@@ -28,7 +32,15 @@ class SplashProvider with ChangeNotifier {
   void navigationPage() async {
     //  SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
 
-    Navigator.of(context).pushReplacementNamed(LOGIN);
+    //print(sharedPreferencesProvider.getCurrentUser());
+
+    if (sharedPreferencesProvider.getCurrentUser() == null) {
+      Navigator.of(context).pushReplacementNamed(LOGIN);
+    } else {
+      AppDataHelper.current_user = sharedPreferencesProvider.getCurrentUser();
+
+      Navigator.of(context).pushReplacementNamed(HOME);
+    }
   }
 
   void setAppData() {

@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:blog_app/AppHelper/AppColors.dart';
 import 'package:blog_app/AppHelper/AppSpaces.dart';
 import 'package:blog_app/AppHelper/AppStyle.dart';
+import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/FlutterProvider/SplashScreenProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ class SplashScreen extends StatelessWidget {
   double opcaity = 0.0;
 
   SplashProvider splashProvider;
+  SharedPreferencesProvider sharedPreferencesProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class SplashScreen extends StatelessWidget {
     mainHeight = MediaQuery.of(context).size.height;
 
     splashProvider = Provider.of<SplashProvider>(context)..setView(context);
+    sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(context);
 
     return Scaffold(
       backgroundColor: AppColors.Primary,

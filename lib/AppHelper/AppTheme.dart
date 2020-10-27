@@ -4,7 +4,6 @@ import 'package:blog_app/AppHelper/Dimension.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 AppTheme() {
   return ThemeData(
     primaryColor: AppColors.Primary_Lite,
@@ -38,6 +37,5 @@ AppTheme() {
       TargetPlatform.iOS: RouteTransition(),
       TargetPlatform.android: RouteTransition()
     }),*/
-
   );
 }

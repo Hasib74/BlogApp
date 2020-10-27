@@ -2,6 +2,8 @@ import 'package:blog_app/AppHelper/AppSpaces.dart';
 import 'package:blog_app/AppHelper/AppStyle.dart';
 import 'package:blog_app/FlutterProvider/AuthenticationProvider.dart';
 import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
+import 'package:blog_app/Route/Arguments/ArgumanetName.dart';
+import 'package:blog_app/Route/Arguments/ScreenArguments.dart';
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Widgets/ButtonWithIcon.dart';
 import 'package:blog_app/Widgets/DefaultTextField.dart';
@@ -16,7 +18,6 @@ class Registation extends StatelessWidget {
   TextEditingController controller_email = new TextEditingController();
   TextEditingController controller_nid = new TextEditingController();
   TextEditingController controller_phone_number = new TextEditingController();
-
   LogInAndRegistationProvider logInAndRegistationProvider;
   AuthenticationProvider authenticationProvider;
 
@@ -193,9 +194,17 @@ class Registation extends StatelessWidget {
                 authenticationProvider.setFingerPrintAuthentication(
                     isAuthenticate: value);
 
-                logInAndRegistationProvider.verifyPhoneNumber(
-                    context: context,
-                    phoneNumber: controller_phone_number.value.text);
+                logInAndRegistationProvider
+                    .verifyPhoneNumber(
+                        context: context,
+                        phoneNumber: controller_phone_number.value.text,
+                        name: controller_name.value.text,
+                        nid: controller_nid.value.text,
+                        email: controller_email.value.text)
+                    .then((value) {
+                  print("The otp value is  ${value}");
+                  if (value) {}
+                });
               }
             });
           }

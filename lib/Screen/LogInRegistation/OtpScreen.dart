@@ -1,4 +1,7 @@
 import 'package:blog_app/AppHelper/AppAssets.dart';
+import 'package:blog_app/AppHelper/AppDataHelper.dart';
+import 'package:blog_app/DatabaseProvider/FirebaseProvider.dart';
+import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
 import 'package:blog_app/Route/Arguments/ArgumanetName.dart';
 import 'package:blog_app/Route/Arguments/ScreenArguments.dart';
@@ -7,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:blog_app/Route/Route.dart';
 
 class OtpPage extends StatefulWidget {
   ScreenArguments screenArguments;
@@ -25,6 +29,8 @@ class OtpPageState extends State<OtpPage> {
   TextEditingController controller5 = new TextEditingController();
   TextEditingController controller6 = new TextEditingController();
   TextEditingController currController = new TextEditingController();
+
+  FirebaseProvider firebaseProvider;
 
   @override
   void dispose() {
@@ -45,15 +51,15 @@ class OtpPageState extends State<OtpPage> {
   }
 
   LogInAndRegistationProvider logInAndRegistationProvider;
+  SharedPreferencesProvider sharedPreferencesProvider;
 
   @override
   Widget build(BuildContext context) {
-    //print("Data ${widget.screenArguments.data}");
-
     logInAndRegistationProvider =
         Provider.of<LogInAndRegistationProvider>(context);
+    firebaseProvider = Provider.of<FirebaseProvider>(context);
 
-    print("Otp code is  ${logInAndRegistationProvider.verificationId}");
+    sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(context);
 
     List<Widget> widgetList = [
       Padding(
@@ -431,9 +437,6 @@ class OtpPageState extends State<OtpPage> {
                           ),
                           MaterialButton(
                               onPressed: () {
-                                /*print("Test");
-                                //matchOtp();*/
-
                                 var first_digit = controller1.value.text;
                                 var second_digit = controller2.value.text;
                                 var third_digit = controller3.value.text;
@@ -441,12 +444,43 @@ class OtpPageState extends State<OtpPage> {
                                 var fifth_digit = controller5.value.text;
                                 var six_digit = controller6.value.text;
 
-                                logInAndRegistationProvider.otpVerify(
-                                    smsCode:
-                                        "${first_digit}${second_digit}${third_digit}${fourths_digit}${fifth_digit}${six_digit}",
-                                    context: context,
-                                    logInAndRegistationProvider:
-                                        logInAndRegistationProvider);
+                                logInAndRegistationProvider
+                                    .otpVerify(
+                                        smsCode:
+                                            "${first_digit}${second_digit}${third_digit}${fourths_digit}${fifth_digit}${six_digit}",
+                                        context: context,
+                                        logInAndRegistationProvider:
+                                            logInAndRegistationProvider)
+                                    .then((value) {
+                                  if (value) {
+                                    //Otp matched so we can registation now
+
+                                    firebaseProvider
+                                        .registration(
+                                            name: widget.screenArguments
+                                                .data[ArgumentName.name],
+                                            email: widget.screenArguments
+                                                .data[ArgumentName.email],
+                                            nid: widget.screenArguments
+                                                .data[ArgumentName.nid],
+                                            number: widget.screenArguments
+                                                .data[ArgumentName.Number])
+                                        .then((value) {
+                                      if (value) {
+                                        AppDataHelper.current_user = widget
+                                            .screenArguments
+                                            .data[ArgumentName.Number];
+
+                                        sharedPreferencesProvider
+                                            .storeCurrentUser(widget
+                                                .screenArguments
+                                                .data[ArgumentName.Number]);
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context, HOME, (route) => false);
+                                      }
+                                    });
+                                  }
+                                });
                               },
                               child: Icon(Icons.check)),
                         ],
