@@ -720,4 +720,6 @@ class Language {
   var phone_number_is_required = "Phone number is required";
 
   var wrong_touch = "Wrong touch";
+
+  String post_not_found ="Post not found";
 }

@@ -3,8 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color Primary = Color(0xffFAFCFF);
-  static Color Primary_Lite = Color(0xffFAFCFF);
+  //
+  static Color Primary = Color(0xff8f6f8).withOpacity(0.5);
+  static Color Primary_Lite = Color(0xffffffff);
   static Color secondary_color = Colors.orange.withOpacity(0.4);
   static Color Primary_Dark =
       Color(int.parse('#2661FA'.substring(1, 7), radix: 16) + 0xFF000000);

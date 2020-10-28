@@ -59,4 +59,8 @@ class Dimension {
   static double textFiledHeaderTitleSize = 14;
 
   static double bottom_navigationBar_height = 70;
+
+  static double post_card_height = 340;
+
+  static double post_card_width = mainWidth / 2;
 }
