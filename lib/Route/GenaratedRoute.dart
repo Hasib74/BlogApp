@@ -6,6 +6,7 @@ import 'package:blog_app/Screen/LogInRegistation/LogInPage.dart';
 import 'package:blog_app/Screen/LogInRegistation/OtpScreen.dart';
 import 'package:blog_app/Screen/LogInRegistation/Registation.dart';
 import 'package:blog_app/Screen/SplashScreen.dart';
+import 'package:blog_app/Widgets/LargeDialogWidget.dart';
 import 'package:flutter/material.dart';
 
 Route onGenaratedRoute(RouteSettings routeSettings) {
@@ -27,5 +28,7 @@ Route onGenaratedRoute(RouteSettings routeSettings) {
     ));
   } else if (routeSettings.name == HOME) {
     return CustomPageRoute(Home());
-  }
+  } /*else if (routeSettings.name == VIDEO_VIEW) {
+    return CustomPageRoute();
+  }*/
 }

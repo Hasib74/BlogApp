@@ -47,6 +47,9 @@ dependencies:
   flushbar: ^1.10.4
   firebase_database: ^4.1.1
   shimmer: ^1.1.2
+  flick_video_player:
+  video_player:
+  visibility_detector: ^0.1.5
 
 
 

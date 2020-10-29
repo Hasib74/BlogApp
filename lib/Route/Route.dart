@@ -7,6 +7,8 @@ const String REGISTRATION = "registration";
 const String FACE_RECOGNITION = "face_recognition";
 const String OTP_SCREEN = "otp_screen";
 const String HOME = "home";
+const String VIDEO_VIEW ="video_view";
+
 
 back(context) {
   Navigator.of(context).pop();

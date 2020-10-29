@@ -9,7 +9,10 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="blog_app">
+        android:label="blog_app"
+
+        android:usesCleartextTraffic="true"
+        >
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"

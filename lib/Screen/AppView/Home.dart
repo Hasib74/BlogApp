@@ -25,9 +25,7 @@ class Home extends StatelessWidget {
             switch (snapshot.connectionState) {
               case ConnectionState.active:
                 print("Active");
-
                 return ListView.builder(
-
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, int index) {
                     return PostWidget(
@@ -55,39 +53,3 @@ class Home extends StatelessWidget {
         ));
   }
 }
-
-/*
-* StreamBuilder(
-        stream: FirebaseDatabase.instance
-            .reference()
-            .child(DatabaseKeyName.child_user)
-            .onValue,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Center(
-              child: Text(language.post_not_found),
-            );
-          }
-
-          if (snapshot.hasData) {
-            if (snapshot.data.snapshot.value != null) {
-              Map<dynamic, dynamic> post = snapshot.data.snapshot.value;
-
-              post.forEach((key, value) {
-                print("The Key ${key}");
-                print("The value ${value}");
-              });
-            } else {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          }
-
-          return Container(
-            child: Text("Wait"),
-          );
-        },
-      ),
-*
-* */
