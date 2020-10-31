@@ -1,5 +1,6 @@
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Route/RouteTransition.dart';
+import 'package:blog_app/Screen/AppView/DisplayPost.dart';
 import 'package:blog_app/Screen/AppView/Home.dart';
 import 'package:blog_app/Screen/LogInRegistation/FaceRecognization.dart';
 import 'package:blog_app/Screen/LogInRegistation/LogInPage.dart';
@@ -28,7 +29,9 @@ Route onGenaratedRoute(RouteSettings routeSettings) {
     ));
   } else if (routeSettings.name == HOME) {
     return CustomPageRoute(Home());
-  } /*else if (routeSettings.name == VIDEO_VIEW) {
-    return CustomPageRoute();
-  }*/
+  } else if (routeSettings.name == POST_DISPLAY) {
+    return CustomPageRoute(DisplayPost(
+      screenArguments: routeSettings.arguments,
+    ));
+  }
 }

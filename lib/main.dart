@@ -4,6 +4,7 @@ import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/FlutterProvider/AnimationProvider.dart';
 import 'package:blog_app/FlutterProvider/AuthenticationProvider.dart';
 import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
+import 'package:blog_app/FlutterProvider/PostProvider.dart';
 import 'package:blog_app/FlutterProvider/SplashScreenProvider.dart';
 import 'package:blog_app/Language/AppLocalizations.dart';
 import 'package:blog_app/Language/Language.dart';
@@ -34,6 +35,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => LogInAndRegistationProvider()),
         ChangeNotifierProvider(create: (_) => AuthenticationProvider()),
         ChangeNotifierProvider(create: (_) => FirebaseProvider()),
+        ChangeNotifierProvider(create: (_) => PostProvider()),
         Provider(create: (_) => SharedPreferencesProvider()),
       ],
       child: MyApp(),

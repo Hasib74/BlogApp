@@ -50,6 +50,8 @@ dependencies:
   flick_video_player:
   video_player:
   visibility_detector: ^0.1.5
+  carousel_slider: ^2.3.1
+
 
 
 

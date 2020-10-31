@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
-Widget view_image(
+Widget ViewImageWidget(
     {imageUrl,
-      bool leftTopPadding = false,
-      bool rightTopPadding = false,
-      bool leftBottomPadding = false,
-      bool rightBottomPadding = false}) {
+    double height = 200,
+    bool leftTopPadding = false,
+    bool rightTopPadding = false,
+    bool leftBottomPadding = false,
+    bool rightBottomPadding = false}) {
   return Container(
-    height: 200,
+    height: height,
     width: double.infinity,
     decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
             bottomLeft:
-            leftBottomPadding ? Radius.circular(25) : Radius.circular(0),
+                leftBottomPadding ? Radius.circular(25) : Radius.circular(0),
             topLeft: leftTopPadding ? Radius.circular(25) : Radius.circular(0),
             topRight:
-            rightTopPadding ? Radius.circular(25) : Radius.circular(0),
+                rightTopPadding ? Radius.circular(25) : Radius.circular(0),
             bottomRight:
-            rightBottomPadding ? Radius.circular(25) : Radius.circular(0)),
+                rightBottomPadding ? Radius.circular(25) : Radius.circular(0)),
         image: DecorationImage(
             image: new NetworkImage(imageUrl), fit: BoxFit.cover)),
   );

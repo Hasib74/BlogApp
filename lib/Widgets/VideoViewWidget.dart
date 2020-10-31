@@ -1,10 +1,11 @@
 import 'package:blog_app/AppHelper/AppColors.dart';
 import 'package:blog_app/Widgets/LargeDialogWidget.dart';
+import 'package:blog_app/Widgets/RoundedButtonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoViewWidget extends StatefulWidget {
+class ViewVideoWidget extends StatefulWidget {
   final String videoUrl;
   bool leftTopPadding;
 
@@ -14,7 +15,7 @@ class VideoViewWidget extends StatefulWidget {
 
   bool rightBottomPadding;
 
-  VideoViewWidget(
+  ViewVideoWidget(
       {this.videoUrl,
       this.rightBottomPadding = false,
       this.rightTopPadding = false,
@@ -22,10 +23,10 @@ class VideoViewWidget extends StatefulWidget {
       this.leftBottomPadding = false});
 
   @override
-  _VideoViewWidgetState createState() => _VideoViewWidgetState();
+  _ViewVideoWidgetState createState() => _ViewVideoWidgetState();
 }
 
-class _VideoViewWidgetState extends State<VideoViewWidget>
+class _ViewVideoWidgetState extends State<ViewVideoWidget>
     with AutomaticKeepAliveClientMixin {
   VideoPlayerController _controller;
 
@@ -71,23 +72,13 @@ class _VideoViewWidgetState extends State<VideoViewWidget>
             VideoPlayer(_controller),
             Align(
               alignment: Alignment.center,
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(VideoViewOverlay(video_url: video_list));
-                },
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColors.Primary_Lite.withOpacity(0.7)),
-                  child: Icon(
-                    Icons.play_circle_outline_sharp,
-                    size: 30,
-                  ),
-                ),
-              ),
+              child: RoundedButtonWidget(
+                  button_size: 50,
+                  icon_size: 30,
+                  onClick: () {
+                    Navigator.of(context)
+                        .push(VideoViewOverlay(video_url: video_list));
+                  }),
             ),
           ],
         ));

@@ -8,6 +8,7 @@ const String FACE_RECOGNITION = "face_recognition";
 const String OTP_SCREEN = "otp_screen";
 const String HOME = "home";
 const String VIDEO_VIEW ="video_view";
+const String POST_DISPLAY ="post_display";
 
 
 back(context) {

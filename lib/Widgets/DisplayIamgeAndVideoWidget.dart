@@ -6,13 +6,13 @@ import 'package:video_player/video_player.dart';
 Widget DisplayIamgeAndVideoWidget({List list}) {
   if (list.length == 1) {
     return isImages(list[0])
-        ? view_image(
+        ? ViewImageWidget(
             imageUrl: list[0],
             leftBottomPadding: true,
             leftTopPadding: true,
             rightBottomPadding: true,
             rightTopPadding: true)
-        : VideoViewWidget(
+        : ViewVideoWidget(
             videoUrl: list[0],
             leftBottomPadding: true,
             leftTopPadding: true,
@@ -28,12 +28,12 @@ Widget DisplayIamgeAndVideoWidget({List list}) {
           Expanded(
               // flex: 1,
               child: isImages(list[0])
-                  ? view_image(
+                  ? ViewImageWidget(
                       imageUrl: list[0],
                       leftBottomPadding: true,
                       leftTopPadding: true,
                     )
-                  : VideoViewWidget(
+                  : ViewVideoWidget(
                       videoUrl: list[0],
                       leftBottomPadding: true,
                       leftTopPadding: true,
@@ -48,12 +48,12 @@ Widget DisplayIamgeAndVideoWidget({List list}) {
           Expanded(
               //flex: 1,
               child: isImages(list[1])
-                  ? view_image(
+                  ? ViewImageWidget(
                       imageUrl: list[1],
                       rightTopPadding: true,
                       rightBottomPadding: true,
                     )
-                  : VideoViewWidget(
+                  : ViewVideoWidget(
                       videoUrl: list[1],
                       rightTopPadding: true,
                       rightBottomPadding: true,
@@ -72,12 +72,12 @@ Widget DisplayIamgeAndVideoWidget({List list}) {
               Expanded(
                   flex: 1,
                   child: isImages(list[0])
-                      ? view_image(
+                      ? ViewImageWidget(
                           imageUrl: list[0],
                           leftTopPadding: true,
                           rightTopPadding: true,
                         )
-                      : VideoViewWidget(
+                      : ViewVideoWidget(
                           videoUrl: list[0],
                           leftTopPadding: true,
                           rightTopPadding: true,
@@ -92,12 +92,12 @@ Widget DisplayIamgeAndVideoWidget({List list}) {
                   children: <Widget>[
                     Expanded(
                         child: isImages(list[1])
-                            ? view_image(
+                            ? ViewImageWidget(
                                 imageUrl: list[1],
                                 leftBottomPadding: true,
                                 // rightTopPadding: true,
                               )
-                            : VideoViewWidget(
+                            : ViewVideoWidget(
                                 videoUrl: list[1],
                                 leftBottomPadding: true,
                                 //rightTopPadding: true,
@@ -113,11 +113,11 @@ Widget DisplayIamgeAndVideoWidget({List list}) {
                       child: Stack(
                         children: <Widget>[
                           isImages(list[2])
-                              ? view_image(
+                              ? ViewImageWidget(
                                   imageUrl: list[2],
                                   rightBottomPadding: true,
                                 )
-                              : VideoViewWidget(
+                              : ViewVideoWidget(
                                   videoUrl: list[2],
                                   rightBottomPadding: true,
                                   //  rightTopPadding: true,
