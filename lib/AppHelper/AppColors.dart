@@ -41,4 +41,10 @@ class AppColors {
   static var cursor_color = Colors.black.withOpacity(0.6);
 
   static var black = Colors.black;
+
+  static var radio_active_color = Color(0xff257bfa);
+
+  static var radio_hover_color = Colors.black12;
+
+  static var radio_focus_color = Color(0xffbed4fd);
 }

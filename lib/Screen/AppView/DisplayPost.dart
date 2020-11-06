@@ -1,5 +1,6 @@
 import 'package:blog_app/AppHelper/AppColors.dart';
 import 'package:blog_app/AppHelper/AppSpaces.dart';
+import 'package:blog_app/AppHelper/AppStyle.dart';
 import 'package:blog_app/FlutterProvider/PostProvider.dart';
 import 'package:blog_app/Model/Post.dart';
 import 'package:blog_app/Route/Arguments/ArgumanetName.dart';
@@ -29,7 +30,7 @@ class DisplayPost extends StatelessWidget {
   Widget build(BuildContext context) {
     post = screenArguments.data[ArgumentName.post];
     _postProvider = Provider.of<PostProvider>(context);
-  //  left_and_right_button_visibility();
+    //  left_and_right_button_visibility();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -136,12 +137,12 @@ class DisplayPost extends StatelessWidget {
         children: [
           Text(
             post.title,
-            style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.black,fontSize: 30),
+            style: AppStyle.body_header(context: context),
           ),
           AppSpaces.spaces_height_25,
           Text(
             post.description,
-            style: Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.black54,fontSize: 16),
+            style: AppStyle.body(context: context),
           )
         ],
       ),

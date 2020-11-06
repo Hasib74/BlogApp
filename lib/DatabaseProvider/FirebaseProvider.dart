@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:blog_app/AppHelper/AppDataHelper.dart';
 import 'package:blog_app/DatabaseProvider/DatabaseKeyName.dart';
 import 'package:blog_app/Model/Post.dart';
+import 'package:blog_app/Model/Voted.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -51,38 +52,20 @@ class FirebaseProvider extends ChangeNotifier {
       Map<dynamic, dynamic> post = event.snapshot.value;
 
       post.forEach((key, value) {
-        ///  print("Value  ${value}");
-        //  url_list.add(new Url(url: value["url"]));
-
-        post_list.add(new Post(
+        post_list.add(Post.loadData(value: value));
+        /* post_list.add(new Post(
             title: value["title"],
             user: value["user"],
             type: value["type"],
             time: value["time"],
             url: value["url"],
-            description: value["description"]));
+            description: value["description"] ,
+            poll_data_list: value["poll_data_list"],
+            voted_list: value["voted_list"]));*/
       });
 
       _stream_controller.add(post_list);
     });
-
-    /*   data.listen(( value) {
-      */ /*Map<dynamic, dynamic> post = value;*/ /*
-      */ /*   post.forEach((key, value) {
-        print("Value  ${value}");
-
-        post_list.add(new Post(
-            title: value["title"],
-            user: value["user"],
-            type: value["type"],
-            time: value["time"],
-            url: value["url"]));
-
-
-      });*/ /*
-
-      _stream_controller.add(post_list);
-    });*/
 
     return _stream_controller.stream;
   }

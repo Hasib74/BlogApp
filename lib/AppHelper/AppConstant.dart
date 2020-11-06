@@ -7,4 +7,6 @@ class AppConstant {
   static Function Default_Language_Function = EN();
 
   static AppLocale Default_Locale = AppLocale.BN;
+
+  static String poll="poll";
 }

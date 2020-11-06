@@ -1,4 +1,5 @@
 import 'package:blog_app/AppHelper/AppColors.dart';
+import 'package:blog_app/AppHelper/AppStyle.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
@@ -14,7 +15,7 @@ Widget AppBarWidget({title, @required context}) {
     ),
     title: Text(
       title,
-      style: Theme.of(context).textTheme.headline6,
+      style: AppStyle.header(context: context),
     ),
     actions: [
       Padding(
