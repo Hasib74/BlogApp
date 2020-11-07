@@ -2,6 +2,7 @@ import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Route/RouteTransition.dart';
 import 'package:blog_app/Screen/Display/DisplayPost.dart';
 import 'package:blog_app/Screen/Display/Home.dart';
+import 'package:blog_app/Screen/Display/app_display.dart';
 
 import 'package:blog_app/Screen/LogInRegistation/FaceRecognization.dart';
 import 'package:blog_app/Screen/LogInRegistation/LogInPage.dart';
@@ -28,8 +29,8 @@ Route onGenaratedRoute(RouteSettings routeSettings) {
     return CustomPageRoute(OtpPage(
       screenArguments: routeSettings.arguments,
     ));
-  } else if (routeSettings.name == HOME) {
-    return CustomPageRoute(Home());
+  } else if (routeSettings.name == DISPLAY) {
+    return CustomPageRoute(AppDisplay());
   } else if (routeSettings.name == POST_DISPLAY) {
     return CustomPageRoute(DisplayPost(
       screenArguments: routeSettings.arguments,

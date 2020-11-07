@@ -6,7 +6,7 @@ const String LOGIN = "log_in";
 const String REGISTRATION = "registration";
 const String FACE_RECOGNITION = "face_recognition";
 const String OTP_SCREEN = "otp_screen";
-const String HOME = "home";
+const String DISPLAY = "display";
 const String VIDEO_VIEW ="video_view";
 const String POST_DISPLAY ="post_display";
 

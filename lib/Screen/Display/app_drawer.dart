@@ -1,17 +1,23 @@
 import 'package:blog_app/AppHelper/AppSpaces.dart';
 import 'package:blog_app/AppHelper/AppStyle.dart';
+import 'package:blog_app/FlutterProvider/DisplayProvider.dart';
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawer extends StatelessWidget {
   GlobalKey<ScaffoldState> gobal_key;
 
   AppDrawer({@required this.gobal_key});
 
+  DisplayProvider displayProvider;
+
   @override
   Widget build(BuildContext context) {
+    displayProvider = Provider.of<DisplayProvider>(context);
+
     return SafeArea(
       child: Container(
         width: MediaQuery.of(context).size.width / 1.8,
@@ -42,6 +48,7 @@ class AppDrawer extends StatelessWidget {
               children: [
                 AnimationLimiter(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: AnimationConfiguration.toStaggeredList(
                       duration: const Duration(milliseconds: 375),
                       childAnimationBuilder: (widget) => SlideAnimation(
@@ -52,10 +59,18 @@ class AppDrawer extends StatelessWidget {
                       ),
                       children: [
                         AppSpaces.spaces_height_20,
-                        Text(
-                          language.home,
-                          style: AppStyle.body_header(context: context)
-                              .copyWith(fontSize: 20),
+                        InkWell(
+                          onTap: () {
+                            displayProvider.changePage(
+                                page_name: language.home);
+
+                            back(context);
+                          },
+                          child: Text(
+                            language.home,
+                            style: AppStyle.body_header(context: context)
+                                .copyWith(fontSize: 20),
+                          ),
                         ),
                         AppSpaces.spaces_height_20,
                         Text(
@@ -64,10 +79,17 @@ class AppDrawer extends StatelessWidget {
                               .copyWith(fontSize: 20),
                         ),
                         AppSpaces.spaces_height_20,
-                        Text(
-                          language.event,
-                          style: AppStyle.body_header(context: context)
-                              .copyWith(fontSize: 20),
+                        InkWell(
+                          onTap: () {
+                            displayProvider.changePage(
+                                page_name: language.event);
+                            back(context);
+                          },
+                          child: Text(
+                            language.event,
+                            style: AppStyle.body_header(context: context)
+                                .copyWith(fontSize: 20),
+                          ),
                         ),
                         /* Text(language.home),
                         Text(language.home),*/

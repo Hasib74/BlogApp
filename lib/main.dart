@@ -3,6 +3,8 @@ import 'package:blog_app/DatabaseProvider/FirebaseProvider.dart';
 import 'package:blog_app/DatabaseProvider/SharedPreferencesProvider.dart';
 import 'package:blog_app/FlutterProvider/AnimationProvider.dart';
 import 'package:blog_app/FlutterProvider/AuthenticationProvider.dart';
+import 'package:blog_app/FlutterProvider/DisplayProvider.dart';
+import 'package:blog_app/FlutterProvider/EventProvider.dart';
 import 'package:blog_app/FlutterProvider/LogInAndRegistationProvider.dart';
 import 'package:blog_app/FlutterProvider/PostProvider.dart';
 import 'package:blog_app/FlutterProvider/SplashScreenProvider.dart';
@@ -32,10 +34,12 @@ void main() {
         ChangeNotifierProvider(create: (_) => AppLanguage()),
         ChangeNotifierProvider(create: (_) => SplashProvider()),
         ChangeNotifierProvider(create: (_) => AnimationProvider()),
+        ChangeNotifierProvider(create: (_) => DisplayProvider()),
         ChangeNotifierProvider(create: (_) => LogInAndRegistationProvider()),
         ChangeNotifierProvider(create: (_) => AuthenticationProvider()),
         ChangeNotifierProvider(create: (_) => FirebaseProvider()),
         ChangeNotifierProvider(create: (_) => PostProvider()),
+        ChangeNotifierProvider(create: (_) => EventProvider()),
         Provider(create: (_) => SharedPreferencesProvider()),
       ],
       child: MyApp(),

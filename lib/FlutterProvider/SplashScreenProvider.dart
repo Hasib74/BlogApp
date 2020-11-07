@@ -39,7 +39,7 @@ class SplashProvider with ChangeNotifier {
     } else {
       AppDataHelper.current_user = sharedPreferencesProvider.getCurrentUser();
 
-      Navigator.of(context).pushReplacementNamed(HOME);
+      Navigator.of(context).pushReplacementNamed(DISPLAY);
     }
   }
 

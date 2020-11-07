@@ -52,4 +52,7 @@ class Language {
   var home ="Home";
 
   String profile ="Profile";
+
+  String upcoming="Upcoming";
+  String going="Going";
 }

@@ -476,7 +476,7 @@ class OtpPageState extends State<OtpPage> {
                                                 .screenArguments
                                                 .data[ArgumentName.Number]);
                                         Navigator.pushNamedAndRemoveUntil(
-                                            context, HOME, (route) => false);
+                                            context, DISPLAY, (route) => false);
                                       }
                                     });
                                   }
