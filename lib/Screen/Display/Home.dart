@@ -2,6 +2,7 @@ import 'package:blog_app/AppHelper/AppColors.dart';
 import 'package:blog_app/DatabaseProvider/DatabaseKeyName.dart';
 import 'package:blog_app/DatabaseProvider/FirebaseProvider.dart';
 import 'package:blog_app/Model/Post.dart';
+import 'package:blog_app/Screen/Display/app_drawer.dart';
 import 'package:blog_app/Widgets/AnimatedListViewWidget.dart';
 import 'package:blog_app/Widgets/AppBarWidget.dart';
 import 'package:blog_app/Widgets/LoadingWidget.dart';
@@ -18,9 +19,15 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     firebaseProvider = Provider.of<FirebaseProvider>(context);
+
+    GlobalKey<ScaffoldState> _global_key = new GlobalKey();
+
     return Scaffold(
+        key: _global_key,
+        drawer: AppDrawer(gobal_key: _global_key,),
         backgroundColor: AppColors.Primary,
-        appBar: AppBarWidget(context: context, title: language.Home),
+        appBar: AppBarWidget(
+            context: context, title: language.home, key: _global_key),
         body: StreamBuilder(
           stream: firebaseProvider.streamAllPost(),
           builder: (context, AsyncSnapshot<List<Post>> snapshot) {

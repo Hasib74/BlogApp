@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 
 import '../main.dart';
 
-Widget AppBarWidget({title, @required context}) {
+Widget AppBarWidget(
+    {title, @required context, @required GlobalKey<ScaffoldState> key}) {
   return AppBar(
     elevation: 0.0,
     backgroundColor: AppColors.Primary_Lite,
     centerTitle: true,
-    leading: Icon(
-      Icons.menu,
-      color: Colors.black,
+    leading: InkWell(
+      onTap: () {
+        key.currentState.openDrawer();
+      },
+      child: Icon(
+        Icons.menu,
+        color: Colors.black,
+      ),
     ),
     title: Text(
       title,

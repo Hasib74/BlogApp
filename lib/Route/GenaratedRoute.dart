@@ -1,7 +1,8 @@
 import 'package:blog_app/Route/Route.dart';
 import 'package:blog_app/Route/RouteTransition.dart';
-import 'package:blog_app/Screen/AppView/DisplayPost.dart';
-import 'package:blog_app/Screen/AppView/Home.dart';
+import 'package:blog_app/Screen/Display/DisplayPost.dart';
+import 'package:blog_app/Screen/Display/Home.dart';
+
 import 'package:blog_app/Screen/LogInRegistation/FaceRecognization.dart';
 import 'package:blog_app/Screen/LogInRegistation/LogInPage.dart';
 import 'package:blog_app/Screen/LogInRegistation/OtpScreen.dart';
